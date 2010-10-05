@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# Zip it all up, including HTML, for easy backup.
+
+tar -cvz --file=mtghtml.tar.gz ids/* html/* xml/*
+

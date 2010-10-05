@@ -1,0 +1,23 @@
+# TODO
+
+- We'll need another script that extracts card images as well.
+
+- Extract rulings? This might be useful, although it does not necessarily make
+  sense to store them in the same XML files as the card data.
+
+- Split cards: Some sets (like Invasion) use separate multiverse ids for each
+  side, which is fine. Other sets (like Apocalypse) have split cards that for
+  some reason use the *same* multiverse id for both sides. This is a problem
+  because currently only the rules for one side are extracted. In order to
+  make this work, we'd need to have a way to fetch the HTML for both sides,
+  and somehow assign them different ids.
+
+  Different HTML can be fetched by using a parameter in the URL:
+
+  http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=27166&part=Fi
+re
+  http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=27166&part=Ic
+e
+
+- Some cards have alternate art versions that have the same multiverse id.
+  When we extract images, this will become a problem.
