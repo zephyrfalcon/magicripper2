@@ -1,0 +1,32 @@
+This is MagicRipper2, a collection of scripts to extract card info from
+Gatherer, the official Magic the Gathering card database.
+
+Requirements:
+- Python 2.5+ (but not 3.x)
+- BeautifulSoup [http://www.crummy.com/software/BeautifulSoup/]
+
+In short, MagicRipper2 works by extracting the "multiverse" ids of cards in a
+certain set, retrieving the HTML for those cards (and storing it locally), and
+generating XML based on card data found in those HTML files.
+
+More documentation will be added later (famous last words...)  For now, this
+is a quick summary of how to use it:
+
+(In the following, FOO is a code for an expansion set, e.g. ALA for Shards of
+Alara, etc. These codes are used by Gatherer. See sets.py.)
+
+$ python scan_set.py FOO
+
+=> produces ids/FOO.txt, a text file with a list of multiverse ids
+
+$ python grab_html.py FOO
+
+=> reads ids/FOO.txt and grabs the HTML for those cards from Gatherer,
+producing a directory html/FOO with two files for each card, one with the
+original card data, one with updated "Oracle" data.
+
+$ python gen_xml.py FOO
+
+=> reads the HTML in html/FOO, extracts card data, and writes them to an XML
+file (xml/FOO.xml).
+
