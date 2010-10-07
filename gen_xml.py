@@ -120,10 +120,31 @@ def write_xml(short_set, root):
 
     sanity.validate_xml(path)
 
+re_version = re.compile("<version>(.*?)</version>")
+
+def find_updates():
+    """ Return the sets whose XML files needs updated, i.e. they have a
+        version < the latest version. """
+    behind = []
+    for short_set in sets.set_info.keys():
+        path = os.path.join("xml", short_set + ".xml")
+        with open(path, 'rb') as f:
+            chunk = f.read(2048) # read first 2K
+        m = re_version.search(chunk)
+        if m:
+            file_version = m.group(1)
+            if file_version < XML_VERSION:
+                behind.append(short_set)
+        else:
+            # no version?! must be really old
+            behind.append(short_set)
+
+    return behind
+
 
 if __name__ == "__main__":
 
-    opts, args = getopt.getopt(sys.argv[1:], "d")
+    opts, args = getopt.getopt(sys.argv[1:], "du", ["update"])
     if args == ["all"]:
         args = sorted(sets.set_info.keys())
 
@@ -131,6 +152,9 @@ if __name__ == "__main__":
         if o == '-d':
             print "Running in debug mode"
             DEBUG = True
+        elif o in ("--update", "-u"):
+            args = find_updates()
+            print "Updating:", args
 
     for short_set in args:
         gen_xml(short_set)
