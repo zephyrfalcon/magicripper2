@@ -1,7 +1,5 @@
 # TODO
 
-- We'll need another script that extracts card images as well.
-
 - Extract rulings? This might be useful, although it does not necessarily make
   sense to store them in the same XML files as the card data.
 
