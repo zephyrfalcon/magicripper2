@@ -136,6 +136,11 @@ set_info = {
              cards=102, # 187 when counting alternate art versions
              date="1994-11"),
 
+    'FVR': S(name="From the Vault: Relics",
+             cards=15,
+             date="2010-08-27",
+             deck=1),
+
     'FUT': S(name="Future Sight",
              cards=180,
              date="2007-05-04"),
@@ -236,7 +241,8 @@ set_info = {
 
     'PDS': S(name="Premium Deck Series: Slivers",
              cards=41, # 60-card deck with 41 unique cards
-             date="2009-11-20"),
+             date="2009-11-20",
+             deck=1),
 
     'PLC': S(name="Planar Chaos",
              cards=165,
