@@ -173,6 +173,9 @@ bogus_mana = [
     ('oW', '{W}'),
     ('oX', '{X}'),
     ('ocT', '{TAP}'),
+    ('(r/w)', '{RW}'),  # Figure of Destiny [EVE]
+    ('(w/b)', '{WB}'),  # Stillmoon Cavalier [EVE]
+    ('(g/w)', '{GW}'),  # Rhys the Redeemed [SHM]
 ]
 re_bogus_mana_number = re.compile("o(\d+)")
 
