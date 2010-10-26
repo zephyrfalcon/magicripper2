@@ -83,6 +83,11 @@ set_info = {
              cards=145,
              date="2009-04-30"),
 
+    'ARC': S(name="Archenemy",
+             cards=195, # uncertain
+             date="2010-06-18",
+             deck=1),
+
     'ARN': S(name="Arabian Nights",
              cards=78, # 92 if counting alternate art versions
              date="1993-12"),

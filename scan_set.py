@@ -13,7 +13,8 @@ import sets
 import tools
 
 SEARCH_URL = "http://gatherer.wizards.com/Pages/Search/Default.aspx?"\
-             "page=%(page)s&set=%%5B%%22%(escaped_set_name)s%%22%%5D"
+             "page=%(page)s&set=%%5B%%22%(escaped_set_name)s%%22%%5D"\
+             "&special=true"
 
 #URL_RE = re.compile(r"../Card/Details\.aspx\?multiverseid=(\d+)")
 URL_RE = re.compile(r"../../Handlers/Image\.ashx\?multiverseid=(\d+)")

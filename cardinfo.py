@@ -52,8 +52,6 @@ class CardInfoGatherer:
         self.soup = soup
 
     def name(self):
-        #n = self.soup.find('span', id=PREFIX1+"subtitleDisplay")
-        #return gather_contents(n)
         n = self.soup.find('div', id=PREFIX2+"nameRow")
         o = n.find('div', {'class': 'value'})
         return gather_contents(o)
