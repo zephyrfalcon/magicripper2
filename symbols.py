@@ -28,6 +28,7 @@ symbols = {
     "two or red": "2R",
     "untap": "UNTAP",
     "snow": "S",
+    "[chaos]": "CHAOS",
 }
 
 re_number = re.compile("^\d+$")

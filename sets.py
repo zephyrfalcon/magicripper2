@@ -158,6 +158,11 @@ set_info = {
              cards=115, # 140 when counting alternate art versions
              date="1995-10"),
 
+    'HOP': S(name="Planechase",
+             cards=210, # unsure; 189 unique in Gatherer
+             date="2009-09-04",
+             deck=1),
+
     'ICE': S(name="Ice Age",
              cards=383,
              date="1996-06",
