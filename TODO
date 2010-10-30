@@ -17,6 +17,15 @@ re
   http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=27166&part=Ic
 e
 
+  2010-10-29: This is in progress; I'm not sure yet how to handle these. In
+  any case, the multiverseids of the split cards, and the names of their
+  parts, were added to special.py.
+
+  The XML should contain an entry for each part. The name should be the actual
+  name of the part; the rules text should only be that of the part, etc.
+  However, there should also be some indication that this is part of a split
+  card.
+
 - Some cards have alternate art versions that have the same multiverse id.
   When we extract images, this will become a problem.
 
