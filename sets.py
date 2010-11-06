@@ -331,6 +331,11 @@ set_info = {
              cards=143,
              date="1999-06-07"),
 
+    'UGL': S(name="Unglued",
+             cards=93, # 88 unique cards
+             date="1998-08-17",
+             non_tournament_legal=1),
+
     'ULG': S(name="Urza's Legacy", 
              cards=143,
              date="1999-02-15"),

@@ -30,3 +30,12 @@ split_cards = {
 PARTIAL_CARD_URL = "http://gatherer.wizards.com/Pages/Card/Details.aspx?"\
                  + "multiverseid=%(multiverseid)&part=%(partname)"
 
+UNGLUED_TOKENS = [
+    5503,     # Goblin
+    4979,     # Pegasus
+    5560,     # Sheep
+    5472,     # Soldier
+    5607,     # Squirrel
+    5601,     # Zombie
+]
+

@@ -12,11 +12,12 @@ from cardinfo import CardInfoGatherer
 import grab_html
 import sanity
 import sets
+import special
 import symbols
 import tools
 import xmltools
 
-XML_VERSION = "1.1.3"
+XML_VERSION = "1.2.0"
 # this should be bumped up every time a change is made to the XML output
 # (directly or indirectly), or if sanity checks were added.
 
@@ -30,16 +31,23 @@ def gen_xml(short_set):
     root = generate_base_xml(short_set)
     cards = root.find('.//cards')
     for idx, id in enumerate(ids):
+        if short_set == 'UGL' and id in special.UNGLUED_TOKENS:
+            print "Skipping token:", id
+            continue
+
         print id
         sp = open_with_bs(short_set, id, 'p')
         so = open_with_bs(short_set, id, 'o')
 
         try:
-            d = gather_data(sp)
+            d = gather_data(so)
         except:
             print "Multiverse id:", id
             raise
-        d['type_oracle'], d['rules_oracle'] = extract_oracle_data(so)
+        d['type_oracle'] = d['type']
+        d['rules_oracle'] = d['rules']
+        del d['type'], d['rules']
+        d['type_printed'], d['rules_printed'] = extract_printed_data(sp)
         d['multiverseid'] = str(id)
         print d
         sanity.check_card_dict(d)
@@ -50,7 +58,7 @@ def gen_xml(short_set):
     write_xml(short_set, root)
     print "Done"
 
-ATTRS = ['name', 'manacost', 'type_printed', 'rules_printed',
+ATTRS = ['name', 'manacost', 'type', 'rules',
          'rarity', 'number', 'artist', 'power', 'toughness', 
          'loyalty', 'flavor_text']
 SPECIAL = ['manacost']
@@ -85,9 +93,9 @@ def gather_data(soup):
 
     return d
 
-def extract_oracle_data(soup):
+def extract_printed_data(soup):
     cig = CardInfoGatherer(soup)
-    return cig.type_printed(), cig.rules_printed()
+    return cig.type(), cig.rules()
 
 def open_with_bs(short_set, id, suffix):
     path = os.path.join('html', short_set, "%s-%s.html" % (id, suffix))

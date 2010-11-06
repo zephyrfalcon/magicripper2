@@ -29,7 +29,10 @@ def check_card_dict(d):
     if 'planeswalker' in d['type_oracle'].lower():
         assert d.has_key('loyalty')
 
-    if 'creature' in d['type_oracle'].lower():
+    # applies to creatures, but not to "enchant creature" cards (like in
+    # Unglued, whose cards haven't been updated by the "oracle")
+    if 'creature' in d['type_oracle'].lower() \
+    and 'enchant ' not in d['type_oracle'].lower():
         assert d.has_key('power')
         assert d.has_key('toughness')
 

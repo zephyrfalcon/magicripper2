@@ -16,8 +16,10 @@ characters = [
     ('\xe2\x80\x94', '--'),
     ('\xe2\x80\x99', "'"),
     ('\xe2\x80\xa8', " "),
+    ('\xe2\x84\xa2', '(TM)'),
 
     ('\xc2\xa0', ' '),
+    ('\xc2\xa1', '!'),
     ('\xc2\xb2', '2'),  # squared symbol
     ('\xc2\xba', 'o'),  # degree symbol; no equivalent in low ASCII :-/
     ('\xc3\x84', 'A'),
@@ -66,12 +68,12 @@ class CardInfoGatherer:
             syms.append(sym)
         return map(str, syms)
 
-    def type_printed(self):
+    def type(self):
         n = self.soup.find('div', id=PREFIX2+"typeRow")
         o = n.find('div', {'class': 'value'})
         return gather_contents(o)
 
-    def rules_printed(self):
+    def rules(self):
         n = self.soup.find('div', id=PREFIX2+"textRow")
         if n is None: return "" # always create a node for rules, even if empty
         parts = [gather_contents(o)
