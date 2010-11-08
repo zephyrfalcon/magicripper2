@@ -11,8 +11,9 @@ class S:
 
 set_info = {
 
-    # Set names are those used by Gatherer.
-    # Set trigrams (keys) are those used by Wikipedia.
+    # Set names are those used by Gatherer. (NOTE: These must match the full
+    # name used by Gatherer EXACTLY, or returned results won't be correct.)
+    # Set trigrams (keys) are those used by Wikipedia (and Gatherer).
 
     # aliases are sometimes used in the sidebar of search results (e.g. "ODY"
     # -> "OD"), in order to find multiple versions of the same card (usually
@@ -99,6 +100,20 @@ set_info = {
     'BOK': S(name="Betrayers of Kamigawa",
              cards=165,
              date="2005-02-04"),
+
+    # http://en.wikipedia.org/wiki/Battle_Royale_%28Magic:_The_Gathering%29
+    'BRB': S(name="Battle Royale Box Set",
+             cards=136, # matches Wikipedia article
+             date="1999-11-12",
+             alias="BR",
+             deck=1),
+
+    # http://en.wikipedia.org/wiki/Beatdown_%28Magic:_The_Gathering%29
+    'BTD': S(name="Beatdown Box Set",
+             cards=90, # does NOT match Wikipedia article
+             date="2000-12",
+             alias="BD",
+             deck=1),
 
     'CHK': S(name="Champions of Kamigawa",
              cards=307, # 306+1; Brothers Yamazaki has two versions with
