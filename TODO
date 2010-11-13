@@ -29,4 +29,10 @@ e
 - Some cards have alternate art versions that have the same multiverse id.
   When we extract images, this will become a problem.
 
+- What to do with misprints? For example, Squall has a manacost of 2G
+  everywhere, except in Starter 1999, where the printed card has a cost of 1G.
+  (Oracle still shows 2G for this card; I assume this is a correction.)
+  Magicripper now uses the Oracle as the main source of information, so in
+  S99.xml Squall will be 2G, where it used to be 1G. Do we need to keep this
+  information somewhere, somehow? Maybe a #misprint tag? :-]
 
