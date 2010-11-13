@@ -7,3 +7,8 @@
 
 1.1.3   2010-10-27      Added {CHAOS} symbols for Planechase.
 
+1.2.0   2010-11-06      Basic card info is now extracted from the Oracle
+                        version rather than the printed version, which
+                        affected a few cards (mostly misprints and
+                        corrections).
+
