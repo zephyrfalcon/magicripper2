@@ -224,6 +224,26 @@ set_info = {
              cards=249,
              date="2010-07-16"),
 
+    'MED': S(name="Masters Edition",
+             cards=195,
+             date="2007-09-10",
+             online=1),
+
+    'ME2': S(name="Masters Edition II",
+             cards=245,
+             date="2008-09-22",
+             online=1),
+
+    'ME3': S(name="Masters Edition III",
+             cards=230,
+             date="2009-09-07",
+             online=1),
+
+    'ME4': S(name="Masters Edition IV",
+             cards=269,
+             date="2011-01-10",
+             online=1),
+
     'MIR': S(name="Mirage",
              cards=350,
              date="1996-10-08",
