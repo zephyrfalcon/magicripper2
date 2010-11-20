@@ -36,3 +36,7 @@ e
   S99.xml Squall will be 2G, where it used to be 1G. Do we need to keep this
   information somewhere, somehow? Maybe a #misprint tag? :-]
 
+- Maybe gen_xml.py should have an option that takes a version number, then
+  update all known sets that have a version earlier than that, but leave the
+  XML files with the same version alone.
+

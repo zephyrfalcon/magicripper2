@@ -12,3 +12,6 @@
                         affected a few cards (mostly misprints and
                         corrections).
 
+1.3.0   2010-11-20      Added "tags" to certain sets. Currently supported are
+                        'deck' and 'online'. 
+

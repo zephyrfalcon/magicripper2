@@ -17,9 +17,15 @@ import symbols
 import tools
 import xmltools
 
-XML_VERSION = "1.2.0"
+XML_VERSION = "1.3.0"
 # this should be bumped up every time a change is made to the XML output
 # (directly or indirectly), or if sanity checks were added.
+
+# these tags can be added to a set
+SET_TAGS= [
+    "deck",         # preconstructed deck or special package
+    "online",       # MTGO only
+]
 
 # ElementTree does not write the XML header, so we need to provide this
 XML_HEADER = '<?xml version="1.0" ?>'
@@ -79,6 +85,13 @@ def generate_base_xml(short_set):
     noc = ET.SubElement(set, 'number_of_cards')
     noc.text = str(s.cards)
     date = ET.SubElement(set, 'release_date')
+
+    tags = ET.SubElement(set, 'tags')
+    # add tags, if any
+    for tag in SET_TAGS:
+        if getattr(s, tag, None):
+            _ = ET.SubElement(tags, tag) # value does not matter
+
     date.text = s.date
     cards = ET.SubElement(set, 'cards')
     return root
