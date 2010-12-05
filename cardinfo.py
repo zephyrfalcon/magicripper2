@@ -14,6 +14,7 @@ characters = [
     # multicharacter exprs first
     ('\xe2\x80\x93', '-'),
     ('\xe2\x80\x94', '--'),
+    ('\xe2\x80\x98', "'"),
     ('\xe2\x80\x99', "'"),
     ('\xe2\x80\xa8', " "),
     ('\xe2\x84\xa2', '(TM)'),
