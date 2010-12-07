@@ -1,0 +1,9 @@
+# Known issues:
+
+- Split cards and flip cards are not extracted correctly yet (unless the two
+  parts have different multiverseids, which is sometimes the case).
+
+- In some cases, the flavor text as stored in Gatherer is not completely
+  correct (for example, Pikemen in The Dark, which is missing the leading "--"
+  before the name of the person quoted).
+
