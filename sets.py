@@ -224,6 +224,10 @@ set_info = {
              cards=249,
              date="2010-07-16"),
 
+    'MBS': S(name="Mirrodin Besieged",
+             cards=155,
+             date="2011-04-02"),
+
     'MED': S(name="Masters Edition",
              cards=195,
              date="2007-09-10",
