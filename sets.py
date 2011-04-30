@@ -266,6 +266,10 @@ set_info = {
              cards=306,
              date="2003-10-02"),
 
+    'NPH': S(name="New Phyrexia",
+             cards=175,
+             date="2011-05-13"),
+
     'NMS': S(name="Nemesis",
              cards=143,
              date="2000-02-14"),

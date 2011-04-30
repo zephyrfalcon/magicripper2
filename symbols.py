@@ -29,6 +29,11 @@ symbols = {
     "untap": "UNTAP",
     "snow": "S",
     "[chaos]": "CHAOS",
+    "phyrexian red": "PR",
+    "phyrexian white": "PW",
+    "phyrexian blue": "PU",
+    "phyrexian black": "PB",
+    "phyrexian green": "PG",
 }
 
 re_number = re.compile("^\d+$")
