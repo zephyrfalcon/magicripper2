@@ -7,3 +7,6 @@
   correct (for example, Pikemen in The Dark, which is missing the leading "--"
   before the name of the person quoted).
 
+- Rage Extractor (NPH): "...with p in its mana cost..." This is an error in
+  the text in Gatherer; hard to fix unless we special-case it.
+
