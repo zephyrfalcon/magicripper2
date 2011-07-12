@@ -124,6 +124,11 @@ set_info = {
              cards=16, # 125 when counting alternate art versions
              date="1995-07"),
 
+    'CMD': S(name="Commander",
+             cards=330,
+             date="2011-06-17",
+             deck=1),
+
     'CON': S(name="Conflux",
              cards=145,
              date="2009-02-06"),
