@@ -194,6 +194,10 @@ set_info = {
                         # one for each part)
              date="2000-10-02",
              alias="IN"),
+             
+    'ISD': S(name="Innistrad",
+             cards=264,
+             date="2011-09-30"),
 
     'JUD': S(name="Judgment",
              cards=143,

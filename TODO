@@ -1,5 +1,8 @@
 # TODO
 
+- Innistrad, of course. Need to be able to handle double-faced cards (much
+  like split cards, but Gatherer shows them differently).
+
 - Extract rulings? This might be useful, although it does not necessarily make
   sense to store them in the same XML files as the card data.
 
