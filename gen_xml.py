@@ -33,12 +33,17 @@ XML_HEADER = '<?xml version="1.0" ?>'
 DEBUG = False
 
 def gen_xml(short_set):
+    DFCs = special.double_faced_cards.keys() + special.double_faced_cards.values()
     ids = grab_html.read_ids(short_set)
     root = generate_base_xml(short_set)
     cards = root.find('.//cards')
     for idx, id in enumerate(ids):
         if short_set == 'UGL' and id in special.UNGLUED_TOKENS:
             print "Skipping token:", id
+            continue
+
+        if id in DFCs:
+            print "Skipping DFC", id, "... for now"
             continue
 
         print id

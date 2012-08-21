@@ -97,6 +97,10 @@ set_info = {
              cards=85, # 100 if counting alternate art versions
              date="1994-03"),
 
+    'AVR': S(name="Avacyn Restored",
+             cards=244,
+             date="2012-05-04"),
+
     'BOK': S(name="Betrayers of Kamigawa",
              cards=165,
              date="2005-02-04"),
@@ -140,6 +144,10 @@ set_info = {
     'DIS': S(name="Dissension",
              cards=180,
              date="2006-05-05"),
+
+    'DKA': S(name="Dark Ascension",
+             cards=171, # 158 "physical" cards, 13 of which are double-faced
+             date="2012-02-03"),
 
     'DRK': S(name="The Dark",
              cards=119,
@@ -196,7 +204,7 @@ set_info = {
              alias="IN"),
              
     'ISD': S(name="Innistrad",
-             cards=264,
+             cards=284, # 264 "physical cards", 20 of which are double-faced
              date="2011-09-30"),
 
     'JUD': S(name="Judgment",
@@ -236,6 +244,10 @@ set_info = {
     'M12': S(name="Magic 2012",
              cards=249,
              date="2011-07-15"),
+
+    'M13': S(name="Magic 2013",
+             cards=249,
+             date="2012-07-13"),
 
     'MBS': S(name="Mirrodin Besieged",
              cards=155,

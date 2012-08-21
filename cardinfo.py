@@ -146,6 +146,7 @@ def gather_contents(soupnode):
 
     s = string.join([str(x) for x in soupnode.contents], "").strip()
     s = strip_html(s)
+    s = remove_html_entities(s)
     return replace_chars(s)
 
 def replace_chars(s):
@@ -158,6 +159,15 @@ re_html_tag = re.compile("<[^>]+>")
 
 def strip_html(s):
     return re_html_tag.sub("", s)
+
+def remove_html_entities(s):
+    entities = [['&lt;', '<'],
+                ['&gt;', '>'],
+                ['&amp;', '&']]
+    for before, after in entities:
+        s = s.replace(before, after)
+    return s
+
 
 bogus_mana = [
     ('ooB', '{B}:'),
