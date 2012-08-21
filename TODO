@@ -1,7 +1,13 @@
 # TODO
 
-- Innistrad, of course. Need to be able to handle double-faced cards (much
+- Innistrad/Dark Ascension. Need to be able to handle double-faced cards (much
   like split cards, but Gatherer shows them differently).
+  Observations:
+  - sides have each their own ID and count as a separate card in the multiverse
+  - XML should link the two sides together somehow (but can list them as
+    separate cards otherwise)
+  - backsides lack certain card attributes, like mana cost
+  Note: Avacyn Restored seems OK.
 
 - Extract rulings? This might be useful, although it does not necessarily make
   sense to store them in the same XML files as the card data.
