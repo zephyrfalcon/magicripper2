@@ -53,15 +53,17 @@ class CardInfoGatherer:
 
     def __init__(self, soup):
         self.soup = soup
+        self.PREFIX1 = PREFIX1
+        self.PREFIX2 = PREFIX2
 
     def name(self):
-        n = self.soup.find('div', id=PREFIX2+"nameRow")
+        n = self.soup.find('div', id=self.PREFIX2+"nameRow")
         o = n.find('div', {'class': 'value'})
         return gather_contents(o)
 
     def manacost(self):
         syms = []
-        n = self.soup.find('div', id=PREFIX2+"manaRow")
+        n = self.soup.find('div', id=self.PREFIX2+"manaRow")
         if n is None: return []
         for o in n.findAll('img'):
             sym = o['alt'].lower().strip()
@@ -70,12 +72,12 @@ class CardInfoGatherer:
         return map(str, syms)
 
     def type(self):
-        n = self.soup.find('div', id=PREFIX2+"typeRow")
+        n = self.soup.find('div', id=self.PREFIX2+"typeRow")
         o = n.find('div', {'class': 'value'})
         return gather_contents(o)
 
     def rules(self):
-        n = self.soup.find('div', id=PREFIX2+"textRow")
+        n = self.soup.find('div', id=self.PREFIX2+"textRow")
         if n is None: return "" # always create a node for rules, even if empty
         parts = [gather_contents(o)
                  for o in n.findAll('div', {'class': 'cardtextbox'})]
@@ -84,31 +86,31 @@ class CardInfoGatherer:
 
     def flavor_text(self):
         # XXX much the same as rules_printed()... refactor
-        n = self.soup.find('div', id=PREFIX2+"FlavorText")
+        n = self.soup.find('div', id=self.PREFIX2+"FlavorText")
         if n is None: return None
         parts = [gather_contents(o)
                  for o in n.findAll('div', {'class': 'cardtextbox'})]
         return string.join(parts, "\n")
 
     def rarity(self):
-        n = self.soup.find('div', id=PREFIX2+"rarityRow")
+        n = self.soup.find('div', id=self.PREFIX2+"rarityRow")
         o = n.find('div', {'class': 'value'})
         rarity = gather_contents(o).lower().strip()
         return symbols.rarities[rarity]
 
     def number(self):
-        n = self.soup.find('div', id=PREFIX2+"numberRow")
+        n = self.soup.find('div', id=self.PREFIX2+"numberRow")
         if n is None: return None # older cards don't have a number
         o = n.find('div', {'class': 'value'})
         return gather_contents(o)
 
     def artist(self):
-        n = self.soup.find('div', id=PREFIX2+"artistRow")
-        o = n.find('div', id=PREFIX2+"ArtistCredit")
+        n = self.soup.find('div', id=self.PREFIX2+"artistRow")
+        o = n.find('div', id=self.PREFIX2+"ArtistCredit")
         return gather_contents(o)
 
     def _power_toughness(self):
-        n = self.soup.find('div', id=PREFIX2+"ptRow")
+        n = self.soup.find('div', id=self.PREFIX2+"ptRow")
         if n is None: return None, None
         o = n.find('div', {'class': 'value'})
         s = gather_contents(o)
@@ -128,7 +130,7 @@ class CardInfoGatherer:
         return t
 
     def loyalty(self):
-        n = self.soup.find('div', id=PREFIX2+"ptRow")
+        n = self.soup.find('div', id=self.PREFIX2+"ptRow")
         if n is None: return None
         if "Loyalty:" not in gather_contents(n): return None # P/T
         o = n.find('div', {'class': 'value'})
