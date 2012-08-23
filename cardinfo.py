@@ -3,6 +3,7 @@
 import re
 import string
 #
+import special
 import symbols
 
 # stupid prefixes used by Gatherer HTML
@@ -51,10 +52,18 @@ characters = [
 
 class CardInfoGatherer:
 
-    def __init__(self, soup):
+    def __init__(self, soup, id):
         self.soup = soup
         self.PREFIX1 = PREFIX1
         self.PREFIX2 = PREFIX2
+        self.id = id # multiverseid
+
+        if self.id in special.double_faced_cards.keys():
+            self.PREFIX1 += 'ctl05_'
+            self.PREFIX2 += 'ctl05_'
+        elif self.id in special.double_faced_cards.values():
+            self.PREFIX1 += 'ctl06_'
+            self.PREFIX2 += 'ctl06_'
 
     def name(self):
         n = self.soup.find('div', id=self.PREFIX2+"nameRow")

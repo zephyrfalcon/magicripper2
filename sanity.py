@@ -3,6 +3,7 @@
 
 import re
 import xml.etree.ElementTree as ET
+import special
 
 re_html_entity = re.compile("&\S+;")
 
@@ -26,8 +27,9 @@ def check_card_dict(d):
     assert d.has_key('type_oracle')
     assert d.has_key('name')
 
-    if 'planeswalker' in d['type_oracle'].lower():
-        assert d.has_key('loyalty')
+    if 'planeswalker' in d['type_oracle'].lower() \
+    and int(d['multiverseid']) not in special.double_faced_cards.values():
+        assert d.has_key('loyalty'), d
 
     # applies to creatures, but not to "enchant creature" cards (like in
     # Unglued, whose cards haven't been updated by the "oracle")

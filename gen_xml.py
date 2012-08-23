@@ -33,7 +33,6 @@ XML_HEADER = '<?xml version="1.0" ?>'
 DEBUG = False
 
 def gen_xml(short_set):
-    DFCs = special.double_faced_cards.keys() + special.double_faced_cards.values()
     ids = grab_html.read_ids(short_set)
     root = generate_base_xml(short_set)
     cards = root.find('.//cards')
@@ -42,23 +41,23 @@ def gen_xml(short_set):
             print "Skipping token:", id
             continue
 
-        if id in DFCs:
-            print "Skipping DFC", id, "... for now"
-            continue
+        #if id in special.double_faced_cards.values():
+        #    print "Skipping DFC", id, "... for now"
+        #    continue
 
         print id
         sp = open_with_bs(short_set, id, 'p')
         so = open_with_bs(short_set, id, 'o')
 
         try:
-            d = gather_data(so)
+            d = gather_data(so, id)
         except:
             print "Multiverse id:", id
             raise
         d['type_oracle'] = d['type']
         d['rules_oracle'] = d['rules']
         del d['type'], d['rules']
-        d['type_printed'], d['rules_printed'] = extract_printed_data(sp)
+        d['type_printed'], d['rules_printed'] = extract_printed_data(sp, id)
         d['multiverseid'] = str(id)
         print d
         sanity.check_card_dict(d)
@@ -101,9 +100,9 @@ def generate_base_xml(short_set):
     cards = ET.SubElement(set, 'cards')
     return root
 
-def gather_data(soup):
+def gather_data(soup, id):
     d = {}
-    cig = CardInfoGatherer(soup)
+    cig = CardInfoGatherer(soup, id)
     for attr in ATTRS:
         value = getattr(cig, attr)()
         if value is not None:
@@ -111,8 +110,8 @@ def gather_data(soup):
 
     return d
 
-def extract_printed_data(soup):
-    cig = CardInfoGatherer(soup)
+def extract_printed_data(soup, id):
+    cig = CardInfoGatherer(soup, id)
     return cig.type(), cig.rules()
 
 def open_with_bs(short_set, id, suffix):
