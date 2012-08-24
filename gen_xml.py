@@ -17,7 +17,7 @@ import symbols
 import tools
 import xmltools
 
-XML_VERSION = "1.3.2"
+XML_VERSION = "1.4.0"
 # this should be bumped up every time a change is made to the XML output
 # (directly or indirectly), or if sanity checks were added.
 

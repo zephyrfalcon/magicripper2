@@ -9,6 +9,12 @@
   - backsides lack certain card attributes, like mana cost
   Note: Avacyn Restored seems OK.
 
+  [hn 20120824] This seems to work OK now; I must update magicquery and friends
+  so we can actually consult the database about these cards.
+
+- Flip cards are now presented the same way as DFCs (were they always?) but
+  both sides have the same ID. Needs special handling still.
+
 - Extract rulings? This might be useful, although it does not necessarily make
   sense to store them in the same XML files as the card data.
 
