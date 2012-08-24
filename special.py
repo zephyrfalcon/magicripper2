@@ -77,3 +77,6 @@ double_faced_cards = {
     253433: 253429, # Mondronen Shaman / Tovolar's Magehunter
     262694: 262659, # Scorned Villager / Moonscarred Werewolf
 }
+
+doublefaced_reverse = dict([(v, k) for (k, v) in double_faced_cards.items()])
+

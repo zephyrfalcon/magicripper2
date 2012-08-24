@@ -41,10 +41,6 @@ def gen_xml(short_set):
             print "Skipping token:", id
             continue
 
-        #if id in special.double_faced_cards.values():
-        #    print "Skipping DFC", id, "... for now"
-        #    continue
-
         print id
         sp = open_with_bs(short_set, id, 'p')
         so = open_with_bs(short_set, id, 'o')
@@ -59,6 +55,21 @@ def gen_xml(short_set):
         del d['type'], d['rules']
         d['type_printed'], d['rules_printed'] = extract_printed_data(sp, id)
         d['multiverseid'] = str(id)
+
+        try:
+            back = special.double_faced_cards[id]
+        except KeyError:
+            pass
+        else:
+            d['doublefaced'] = ('front', str(back))
+
+        try:
+            front = special.doublefaced_reverse[id]
+        except KeyError:
+            pass
+        else:
+            d['doublefaced'] = ('back', str(front))
+
         print d
         sanity.check_card_dict(d)
 
@@ -71,7 +82,7 @@ def gen_xml(short_set):
 ATTRS = ['name', 'manacost', 'type', 'rules',
          'rarity', 'number', 'artist', 'power', 'toughness', 
          'loyalty', 'flavor_text']
-SPECIAL = ['manacost']
+SPECIAL = ['manacost', 'doublefaced']
 # these attribute names should correspond to CardInfoGatherer methods and the
 # eventual XML tags that we're going to use
 
@@ -132,6 +143,18 @@ def add_xml_element(elem, d):
     for symbol in d['manacost']:
         s = ET.SubElement(manacost, 'symbol')
         s.text = symbol
+
+    # add double-faced indicator
+    try:
+        side, counterpart = d['doublefaced']
+    except KeyError:
+        pass
+    else:
+        dblfaced = ET.SubElement(card, 'doublefaced')
+        sidenode = ET.SubElement(dblfaced, 'side')
+        sidenode.text = side
+        cntrnode = ET.SubElement(dblfaced, 'other')
+        cntrnode.text = counterpart
 
     return card
 
