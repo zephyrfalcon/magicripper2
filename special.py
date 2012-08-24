@@ -39,6 +39,12 @@ UNGLUED_TOKENS = [
     5601,     # Zombie
 ]
 
+# TODO
+flip_cards = [
+    78678,    # Nezumi Graverobber (CHK)
+   247175,    # Nezumi Graverobber (CMD)
+]
+
 double_faced_cards = {
     # Innistrad:
     244683: 244687, # Hanweir Watchkeep / Bane of Hanweir (ISD)
