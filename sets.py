@@ -348,6 +348,11 @@ set_info = {
              cards=248,
              date="2010-04-23"),
 
+
+    'RTR': S(name="Return to Ravnica",
+             cards=274,
+             date="2012-10-05"),
+
     'S00': S(name="Starter 2000",
              cards=57,
              date="2000-07",
