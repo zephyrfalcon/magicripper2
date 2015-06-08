@@ -1,3 +1,12 @@
+**NOTE**: I am no longer maintaining this. It doesn't seem to be worth the
+trouble, because (1) the process is fraught with errors and problems (see
+https://news.ycombinator.com/item?id=6300079 for other people's attempts, and
+what they found) and (2) there is another project that does the same,
+extracting to JSON, and it seems up-to-date: http://mtgjson.com/. I recommend
+using this.
+
+-----
+
 This is MagicRipper2, a collection of scripts to extract card info from
 Gatherer, the official Magic the Gathering card database.
 
